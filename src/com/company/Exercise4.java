@@ -16,7 +16,7 @@ public class Exercise4 {
         swap(arr);
         int result=0;
         for (int i = 0; i < arr.length; i++) {
-            result += arr[i]*Math.pow(10,(arr.length-1-i));
+            result += arr[i]*(int)Math.pow(10,(arr.length-1-i));
         }
         System.out.println(result);
     }
