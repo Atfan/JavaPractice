@@ -9,6 +9,10 @@ public class Exercise4 {
         int numb = scanner.nextInt();
         int[] arr = new int[6];
         int t=numb;
+        if(numb>10000000 || numb<99999){
+            System.out.println("Ви ввели не вірний формат числа!");
+            return;
+        }
         for (int i = 5; i >= 0; i--) {
             arr[i] = t%10;
             t=t/10;
