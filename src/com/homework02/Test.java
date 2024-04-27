@@ -39,6 +39,20 @@ public class Test {
         System.out.println(country.Card());
         System.out.println();
 
+        //Завдання 4
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        Fraction frac1 = new Fraction();
+        Fraction frac2 = new Fraction();
+        frac1.setNumerator(2);
+        frac1.setDenominator(3);
+        frac2.setNumerator(3);
+        frac2.setDenominator(4);
+        frac1.Add(frac2).Print();
+        frac1.Subtract(frac2).Print();
+        frac1.Add(2).Print();
+        frac1.Divide(frac2).Print();
+        frac1.Multiply(frac2).Print();
+        frac1.FractiondivideInteger(0).Print();
 
     }
 }
