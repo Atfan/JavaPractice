@@ -12,25 +12,21 @@ public class Exercise6 {
             scanner.nextLine();
             System.out.println("Введіть бажану метрику(exit для виходу): ");
             String choise = scanner.nextLine().toLowerCase();
-
-            if(choise.equals("exit")) {
-                return;
-            }else{
-                switch (choise) {
-                    case "mil":
-                        System.out.println(MInMil(metr)+" "+choise+" в "+metr+" m");
-                        break;
-                    case "inc":
-                        System.out.println(MInInc(metr)+" "+choise+" в "+metr+" m");
-                        break;
-                    case "yd":
-                        System.out.println(MInYd(metr)+" "+choise+" в "+metr+" m");
-                        break;
-                    default:
-                        System.out.println("Невідомий одиниця виміру.");
-                }
+            switch (choise) {
+                case "mil":
+                    System.out.println(MInMil(metr)+" "+choise+" в "+metr+" m");
+                    break;
+                case "inc":
+                    System.out.println(MInInc(metr)+" "+choise+" в "+metr+" m");
+                    break;
+                case "yd":
+                    System.out.println(MInYd(metr)+" "+choise+" в "+metr+" m");
+                    break;
+                case "exit":
+                    return;
+                default:
+                    System.out.println("Невідомий одиниця виміру.");
             }
-
         }
 
     }
