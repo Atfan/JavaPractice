@@ -1,12 +1,24 @@
-package com.homework02;
+package com.homework02_03;
 
 public class City {
     private String name;
     private String region;
-    private String country;
+    private Country country;
     private int population;
     private String postal;
     private String phoneCode;
+
+    public City(String name, String region, Country country) {
+        this.name = name;
+        this.region = region;
+        this.country = country;
+    }
+    public City(String name, String region){
+        this(name ,region,null);
+    }
+    public City(){
+        this("","");
+    }
 
     public String Card(){
         return "Назва: " + name +"\nРегіон: " + region+ "\nКраїна: " + country +
@@ -31,10 +43,10 @@ public class City {
     }
 
     public String getCountry() {
-        return country;
+        return country.getName();
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

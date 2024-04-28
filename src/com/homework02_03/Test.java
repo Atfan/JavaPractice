@@ -1,4 +1,4 @@
-package com.homework02;
+package com.homework02_03;
 
 public class Test {
     public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class Test {
         //Завдання 2
         City city = new City();
         city.setName("Chernihiv");
-        city.setCountry("Ukraine");
+        city.setCountry(country);
         city.setPopulation(287747);
         city.setPostal("14000");
         city.setRegion("Chernihiv Oblast");
@@ -26,6 +26,7 @@ public class Test {
         person.setAddress("street, 65");
         person.setCity(city);
         person.setDateOfBirth("01.01.1990");
+        person.setCountry(country);
 
         System.out.println(person.getFullName());
         System.out.println(person.Card());
@@ -52,7 +53,7 @@ public class Test {
         frac1.Add(2).Print();
         frac1.Divide(frac2).Print();
         frac1.Multiply(frac2).Print();
-        frac1.FractiondivideInteger(0).Print();
+        //frac1.FractiondivideInteger(0).Print();
 
     }
 }

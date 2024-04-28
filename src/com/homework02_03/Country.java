@@ -1,4 +1,4 @@
-package com.homework02;
+package com.homework02_03;
 
 public class Country {
     private String name;
@@ -7,6 +7,19 @@ public class Country {
     private String phoneCode;
     private String capitalName;
     private String[] cities;
+
+
+    public Country(String name,  String capitalName, String continent) {
+        this.name = name;
+        this.capitalName = capitalName;
+        this.continent = continent;
+    }
+    public Country(String name,  String capitalName){
+        this(name ,capitalName,"");
+    }
+    public Country(){
+        this("","");
+    }
 
     public String Card(){
         return "Назва: " + name +"\nКонтинент: " + continent+

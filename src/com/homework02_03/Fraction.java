@@ -1,9 +1,21 @@
-package com.homework02;
+package com.homework02_03;
 
 public class Fraction {
 
     private int numerator;
     private int denominator;
+
+    public Fraction(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new RuntimeException("Denominator is zero");
+        }
+        this.numerator = numerator;
+        this.denominator = denominator;
+    }
+
+    public Fraction() {
+        this(0, 1);
+    }
 
 
     public void Print() {

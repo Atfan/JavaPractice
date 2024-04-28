@@ -1,13 +1,28 @@
-package com.homework02;
+package com.homework02_03;
 
 public class Person {
     private String fullName;
     private String dateOfBirth;
     private String phone;
     private City city;
-    private String country;
+    private Country country;
     private String address;
 
+    public Person(String fullName, String dateOfBirth, String phone, String address){
+        this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        this.phone = phone;
+        this.address = address;
+    }
+    public Person(String fullName, String phone){
+        this(fullName,"",phone,"");
+    }
+    public Person(String fullName){
+        this(fullName,"");
+    }
+    public Person(){
+        this("");
+    }
 
     public String Card() {
         return "Ім'я: " + fullName +
@@ -49,10 +64,10 @@ public class Person {
     }
 
     public String getCountry() {
-        return country;
+        return country.getName();
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 
