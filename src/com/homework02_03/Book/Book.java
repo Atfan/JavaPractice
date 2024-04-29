@@ -1,4 +1,4 @@
-package com.homework02_03;
+package com.homework02_03.Book;
 
 public class Book {
     private String title;

@@ -1,4 +1,6 @@
-package com.homework02_03;
+package com.homework02_03.City;
+
+import com.homework02_03.Country.Country;
 
 public class City {
     private String name;

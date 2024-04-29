@@ -1,5 +1,10 @@
 package com.homework02_03;
 
+import com.homework02_03.City.City;
+import com.homework02_03.Country.Country;
+import com.homework02_03.Fraction.Fraction;
+import com.homework02_03.Person.Person;
+
 public class Test {
     public static void main(String[] args) {
         //Завдання 3

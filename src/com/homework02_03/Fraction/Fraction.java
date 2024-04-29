@@ -1,4 +1,4 @@
-package com.homework02_03;
+package com.homework02_03.Fraction;
 
 public class Fraction {
 
