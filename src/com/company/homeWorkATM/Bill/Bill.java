@@ -1,0 +1,38 @@
+package com.company.homeWorkATM.Bill;
+
+public class Bill {
+    private int denomination;
+    private int maxCountInBundle;
+    private int count;
+
+    public Bill(int denomination, int maxCountInBundle) {
+        this.denomination = denomination;
+        this.maxCountInBundle = maxCountInBundle;
+        this.count = 0;
+    }
+
+    public int getDenomination() {
+        return denomination;
+    }
+
+    public int getCount() {
+
+        return count;
+    }
+
+    public void addBills(int billsToAdd) {
+        if (count + billsToAdd <= maxCountInBundle) {
+            count += billsToAdd;
+        } else {
+            System.out.println("Cannot add bills, maximum count exceeded.");
+        }
+    }
+
+    public void removeBills(int billsToRemove) {
+        if (count - billsToRemove >= 0) {
+            count -= billsToRemove;
+        } else {
+            System.out.println("Cannot remove bills, insufficient count.");
+        }
+    }
+}
