@@ -1,6 +1,7 @@
 package com.company.homeWorkATM.ATM;
 
 import com.company.homeWorkATM.Bill.Bill;
+import com.company.homeWorkATM.MyException.MyATMException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,15 +20,15 @@ public class ATM {
         bills.addAll(initialBills);
     }
 
-    public void manualInput(int denomination, int count) {
+    public void manualInput(int denomination, int count) throws MyATMException {
         if (denomination >= minDenomination) {
             manualInput.put(denomination, count);
         } else {
-            System.out.println("Cannot input bill of lower denomination than " + minDenomination);
+           throw new MyATMException("Cannot input bill of lower denomination than " + minDenomination);
         }
     }
 
-    public void withdraw(int amount) {
+    public void withdraw() {
         // Algorithm for withdrawal
         // ...
 

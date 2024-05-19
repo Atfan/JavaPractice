@@ -9,6 +9,8 @@ import java.util.List;
 
 public class Test2 {
     public static void main(String[] args) {
+
+        try {
         // Create bills
         Bill bill1 = new Bill(500, 100);
         Bill bill2 = new Bill(200, 100);
@@ -26,12 +28,16 @@ public class Test2 {
         // Initialize ATM
         atm.initialize(initialBills);
 
-        // Manual input bills
-        atm.manualInput(50, 10);
-        atm.manualInput(20, 20);
+            // Manual input bills
+            atm.manualInput(50, 10);
+            atm.manualInput(20, 20);
 
         // Withdraw from ATM
-        atm.withdraw(200);
+        atm.withdraw();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
 

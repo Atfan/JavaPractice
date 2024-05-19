@@ -1,5 +1,7 @@
 package com.company.homeWorkATM.Bill;
 
+import com.company.homeWorkATM.MyException.MyBillException;
+
 public class Bill {
     private int denomination;
     private int maxCountInBundle;
@@ -20,19 +22,19 @@ public class Bill {
         return count;
     }
 
-    public void addBills(int billsToAdd) {
+    public void addBills(int billsToAdd) throws MyBillException {
         if (count + billsToAdd <= maxCountInBundle) {
             count += billsToAdd;
         } else {
-            System.out.println("Cannot add bills, maximum count exceeded.");
+            throw new MyBillException("Cannot add bills, maximum count exceeded.");
         }
     }
 
-    public void removeBills(int billsToRemove) {
+    public void removeBills(int billsToRemove) throws MyBillException {
         if (count - billsToRemove >= 0) {
             count -= billsToRemove;
         } else {
-            System.out.println("Cannot remove bills, insufficient count.");
+            throw new MyBillException("Cannot remove bills, insufficient count.");
         }
     }
 }
