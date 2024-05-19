@@ -1,6 +1,6 @@
-package com.company.homeWorkATM.Bank;
+package com.homeWorkATM.Bank;
 
-import com.company.homeWorkATM.ATM.ATM;
+import com.homeWorkATM.ATM.ATM;
 
 import java.util.ArrayList;
 import java.util.List;

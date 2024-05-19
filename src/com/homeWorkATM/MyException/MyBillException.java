@@ -1,4 +1,4 @@
-package com.company.homeWorkATM.MyException;
+package com.homeWorkATM.MyException;
 
 public class MyBillException  extends Exception{
     public MyBillException(String message){

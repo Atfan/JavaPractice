@@ -1,7 +1,7 @@
-package com.company.homeWorkATM.ATM;
+package com.homeWorkATM.ATM;
 
-import com.company.homeWorkATM.Bill.Bill;
-import com.company.homeWorkATM.MyException.MyATMException;
+import com.homeWorkATM.Bill.Bill;
+import com.homeWorkATM.MyException.MyATMException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,10 +29,6 @@ public class ATM {
     }
 
     public void withdraw() {
-        // Algorithm for withdrawal
-        // ...
-
-        // For demonstration, just printing out the manual input
         System.out.println("Manual Input:");
         for (int denomination : manualInput.keySet()) {
             System.out.println("Denomination: " + denomination + ", Count: " + manualInput.get(denomination));

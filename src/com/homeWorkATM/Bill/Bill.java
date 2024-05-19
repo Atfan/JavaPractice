@@ -1,6 +1,6 @@
-package com.company.homeWorkATM.Bill;
+package com.homeWorkATM.Bill;
 
-import com.company.homeWorkATM.MyException.MyBillException;
+import com.homeWorkATM.MyException.MyBillException;
 
 public class Bill {
     private int denomination;

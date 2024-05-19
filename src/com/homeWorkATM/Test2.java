@@ -1,7 +1,6 @@
-package com.company.homeWorkATM;
-import com.company.enums.num;
-import com.company.homeWorkATM.ATM.ATM;
-import com.company.homeWorkATM.Bill.Bill;
+package com.homeWorkATM;
+import com.homeWorkATM.ATM.ATM;
+import com.homeWorkATM.Bill.Bill;
 
 import java.util.ArrayList;
 import java.util.List;
