@@ -2,6 +2,7 @@ package com.homeWorkATM.ATM;
 
 import com.homeWorkATM.Bill.Bill;
 import com.homeWorkATM.MyException.MyATMException;
+import com.homeWorkATM.MyException.MyBillException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +11,6 @@ import java.util.List;
 public class ATM {
     private List<Bill> bills = new ArrayList<>();
     private int minDenomination;
-    private HashMap<Integer, Integer> manualInput = new HashMap<>();
 
     public ATM(int minDenomination) {
         this.minDenomination = minDenomination;
@@ -20,18 +20,38 @@ public class ATM {
         bills.addAll(initialBills);
     }
 
-    public void manualInput(int denomination, int count) throws MyATMException {
+    public void manualInput(int denomination, int count) throws MyATMException, MyBillException {
+        boolean isSuccess = false;
         if (denomination >= minDenomination) {
-            manualInput.put(denomination, count);
+            for(Bill bill : bills) {
+                if(bill.getDenomination()==denomination) {
+                    bill.addBills(count);
+                    isSuccess = true;
+                    break;
+                }
+            }
+            if(!isSuccess) {
+                Bill bill = new Bill(denomination, 100);
+                bill.addBills(count);
+                bills.add(bill);
+            }
+
+            logAdd(denomination,count);
         } else {
            throw new MyATMException("Cannot input bill of lower denomination than " + minDenomination);
         }
     }
 
-    public void withdraw() {
+    private void logAdd(int denomination, int count) {
         System.out.println("Manual Input:");
-        for (int denomination : manualInput.keySet()) {
-            System.out.println("Denomination: " + denomination + ", Count: " + manualInput.get(denomination));
+        System.out.println("Denomination: " + denomination + ", Count: " + count);
+
+    }
+    public void Show() {
+        System.out.println("Cash in ATM:");
+        for (Bill bill : bills) {
+            System.out.println("Denomination: " + bill.getDenomination() + ", Count: " + bill.getCount());
+
         }
     }
 }

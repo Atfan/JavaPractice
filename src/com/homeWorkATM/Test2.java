@@ -15,12 +15,12 @@ public class Test2 {
         ATM atm = ATMFabric.generate(); // Assuming minDenomination is 10
 
 
+            atm.Show();
             // Manual input bills
             atm.manualInput(50, 10);
             atm.manualInput(20, 20);
 
-        // Withdraw from ATM
-        atm.withdraw();
+        atm.Show();
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
