@@ -2,7 +2,7 @@ package com.homeWorkATM.Bill;
 
 import com.homeWorkATM.MyException.MyBillException;
 
-public class Bill {
+public class Bill implements Comparable<Bill>{
     private int denomination;
     private int maxCountInBundle;
     private int count;
@@ -36,5 +36,10 @@ public class Bill {
         } else {
             throw new MyBillException("Cannot remove bills, insufficient count.");
         }
+    }
+
+    @Override
+    public int compareTo(Bill other) {
+        return Integer.compare(this.denomination, other.denomination);
     }
 }

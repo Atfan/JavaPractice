@@ -5,6 +5,7 @@ import com.homeWorkATM.MyException.MyATMException;
 import com.homeWorkATM.MyException.MyBillException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,6 +19,31 @@ public class ATM {
 
     public void initialize(List<Bill> initialBills) {
         bills.addAll(initialBills);
+    }
+    public void Output(int count) throws MyBillException, MyATMException {
+        int sum=count;
+        bills.sort(Collections.reverseOrder());
+ ;       List<Bill> newBills = new ArrayList<>(bills);
+        for (Bill bill : newBills) {
+            while(sum>=bill.getDenomination()&& bill.getCount()!=0){
+                sum-=bill.getDenomination();
+                bill.removeBills(1);
+               // System.out.println("Sum: "+ sum+ " Denomination: "+ bill.getDenomination());
+            }
+        }
+        if(sum==0){
+            sum=count;
+            for (Bill bill : newBills) {
+                while(sum>=bill.getDenomination()){
+                    sum-=bill.getDenomination();
+                    bill.removeBills(1);
+                }
+            }
+        }
+        else{
+
+            throw new MyATMException("Cannot output bill with your count, remainder " + sum);
+        }
     }
 
     public void manualInput(int denomination, int count) throws MyATMException, MyBillException {
@@ -36,7 +62,7 @@ public class ATM {
                 bills.add(bill);
             }
 
-            logAdd(denomination,count);
+            //logAdd(denomination,count);
         } else {
            throw new MyATMException("Cannot input bill of lower denomination than " + minDenomination);
         }

@@ -16,7 +16,16 @@ public class BillsFabric {
         Random rand = new Random();
         List<Bill> bills = new ArrayList<>();
         for(int i=0; i<(denomination.length-rand.nextInt(denomination.length)+1); i++) {
-            bills.add(GenerateBill());
+            boolean isAdd=false;
+            Bill newBill=GenerateBill();
+            for(Bill bill:bills) {
+                if(bill.getDenomination()==newBill.getDenomination()) {
+                    bill.addBills(newBill.getCount());
+                }
+            }
+            if(!isAdd){
+                bills.add(newBill);
+            }
         }
         return bills;
     }
