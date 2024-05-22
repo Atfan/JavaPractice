@@ -1,5 +1,7 @@
 package com.homeWorkATM.Bill;
 
+import com.homeWorkATM.MyException.MyBillException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,7 +11,7 @@ public class BillsFabric {
 
     private BillsFabric() {}
 
-    public static List<Bill> Generate() {
+    public static List<Bill> Generate()  throws MyBillException {
 
         Random rand = new Random();
         List<Bill> bills = new ArrayList<>();
@@ -19,8 +21,10 @@ public class BillsFabric {
         return bills;
     }
 
-    public static Bill GenerateBill() {
+    public static Bill GenerateBill() throws MyBillException {
         Random rand = new Random();
-        return new Bill(denomination[rand.nextInt(denomination.length)], 100);
+        Bill bill =new Bill(denomination[rand.nextInt(denomination.length)], 100);
+        bill.addBills(rand.nextInt(100));
+        return bill;
     }
 }
