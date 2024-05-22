@@ -2,7 +2,7 @@ package com.homeWorkATM.Bill;
 
 import com.homeWorkATM.MyException.MyBillException;
 
-public class Bill implements Comparable<Bill>{
+public class Bill implements Comparable<Bill>, Cloneable{
     private int denomination;
     private int maxCountInBundle;
     private int count;
@@ -41,5 +41,14 @@ public class Bill implements Comparable<Bill>{
     @Override
     public int compareTo(Bill other) {
         return Integer.compare(this.denomination, other.denomination);
+    }
+
+    @Override
+    public Bill clone() {
+        try {
+            return (Bill) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -6,7 +6,6 @@ import com.homeWorkATM.MyException.MyBillException;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 public class ATM {
@@ -23,17 +22,19 @@ public class ATM {
     public void Output(int count) throws MyBillException, MyATMException {
         int sum=count;
         bills.sort(Collections.reverseOrder());
- ;       List<Bill> newBills = new ArrayList<>(bills);
+        List<Bill> newBills = new ArrayList<>();
+        for (Bill bill : bills) {
+            newBills.add(bill.clone()); // Клонуємо об'єкти Bill
+        }
         for (Bill bill : newBills) {
             while(sum>=bill.getDenomination()&& bill.getCount()!=0){
                 sum-=bill.getDenomination();
                 bill.removeBills(1);
-               // System.out.println("Sum: "+ sum+ " Denomination: "+ bill.getDenomination());
             }
         }
         if(sum==0){
             sum=count;
-            for (Bill bill : newBills) {
+            for (Bill bill : bills) {
                 while(sum>=bill.getDenomination()){
                     sum-=bill.getDenomination();
                     bill.removeBills(1);
@@ -62,22 +63,12 @@ public class ATM {
                 bills.add(bill);
             }
 
-            //logAdd(denomination,count);
         } else {
            throw new MyATMException("Cannot input bill of lower denomination than " + minDenomination);
         }
     }
 
-    private void logAdd(int denomination, int count) {
-        System.out.println("Manual Input:");
-        System.out.println("Denomination: " + denomination + ", Count: " + count);
-
-    }
-    public void Show() {
-        System.out.println("Cash in ATM:");
-        for (Bill bill : bills) {
-            System.out.println("Denomination: " + bill.getDenomination() + ", Count: " + bill.getCount());
-
-        }
+    public List<Bill> getBills() {
+        return bills;
     }
 }

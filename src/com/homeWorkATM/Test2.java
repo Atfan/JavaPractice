@@ -6,6 +6,8 @@ import com.homeWorkATM.Bill.Bill;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.homeWorkATM.ATM.ATMs.Show;
+
 
 public class Test2 {
     public static void main(String[] args) {
@@ -15,17 +17,20 @@ public class Test2 {
         ATM atm = ATMFabric.generate(); // Assuming minDenomination is 10
 
 
-        atm.Show();
+        Show(atm);
 
         // Manual input bills
         atm.manualInput(50, 10);
         atm.manualInput(20, 20);
 
-        atm.Show();
+            System.out.println();
+            System.out.println("After Input: ");
+        Show(atm);
 
         atm.Output(1000);
-
-        atm.Show();
+            System.out.println();
+            System.out.println("After REMOVE: ");
+        Show(atm);
 
         }
         catch (Exception e) {
