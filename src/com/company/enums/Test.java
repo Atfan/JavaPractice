@@ -1,4 +1,4 @@
-package com.company;
+package com.company.enums;
 
 public class Test {
     public static void main(String[] args) {
