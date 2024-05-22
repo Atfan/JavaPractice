@@ -1,6 +1,7 @@
 package com.homeWorkATM.ATM;
 
 import com.homeWorkATM.Bill.Bill;
+import com.homeWorkATM.Bill.BillsFabric;
 import com.homeWorkATM.MyException.MyATMException;
 import com.homeWorkATM.MyException.MyBillException;
 
@@ -58,6 +59,14 @@ public class ATM {
                 }
             }
             if(!isSuccess) {
+                for(int item : BillsFabric.denomination){
+                    if (item == denomination) {
+                        isSuccess = true;
+                    }
+                }
+                if(!isSuccess) {
+                    throw new MyATMException("Cannot manual input without denomination");
+                }
                 Bill bill = new Bill(denomination, 100);
                 bill.addBills(count);
                 bills.add(bill);

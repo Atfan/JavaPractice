@@ -1,10 +1,9 @@
 package com.homeWorkATM;
 import com.homeWorkATM.ATM.ATM;
 import com.homeWorkATM.ATM.ATMFabric;
-import com.homeWorkATM.Bill.Bill;
+import com.homeWorkATM.MyException.MyATMException;
+import com.homeWorkATM.MyException.MyBillException;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.homeWorkATM.ATM.ATMs.Show;
 
@@ -13,25 +12,33 @@ public class Test2 {
     public static void main(String[] args) {
 
         try {
-        // Create ATM
-        ATM atm = ATMFabric.generate(); // Assuming minDenomination is 10
+            ATM atm = ATMFabric.generate();
 
 
-        Show(atm);
+            Show(atm);
 
-        // Manual input bills
-        atm.manualInput(50, 10);
-        atm.manualInput(20, 20);
+            atm.manualInput(50, 10);
+            atm.manualInput(20, 20);
+            //atm.manualInput(30, 20);                      //throw
 
             System.out.println();
             System.out.println("After Input: ");
-        Show(atm);
+            Show(atm);
 
-        atm.Output(1000);
+
+            atm.Output(1000);
+            //atm.Output(100000000);
+
             System.out.println();
             System.out.println("After REMOVE: ");
-        Show(atm);
+            Show(atm);
 
+        }
+        catch (MyBillException e){
+            System.out.println("Trouble in Bill: "+e.getMessage());
+        }
+        catch (MyATMException e){
+            System.out.println("Trouble in ATM: "+e.getMessage());
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
