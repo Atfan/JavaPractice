@@ -26,7 +26,7 @@ public class RaceCarRunnable extends Car implements Runnable {
     }
     @Override
     public String toString(){
-        return ""+name + " => speed: " + speed + "; progress: " + passed + "/" + distance;
+        return name + " => speed: " + speed + "; progress: " + passed + "/" + distance;
     }
 
     @Override

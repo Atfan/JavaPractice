@@ -2,7 +2,9 @@ package com.homeWorkRace.Race;
 
 import com.homeWorkRace.RaceCarRunnable.RaceCarRunnable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicLong;
@@ -34,11 +36,8 @@ public class Race {
     }
 
     public static String convertToTime(long time) {
-        long seconds = time / 1000;
-        long minutes = seconds / 60;
-        seconds = seconds % 60;
-        long milliseconds = time % 1000;
-        return String.format("%02d:%02d.%03d", minutes, seconds, milliseconds);
+        SimpleDateFormat sdf = new SimpleDateFormat("mm:ss.SSS");
+        return sdf.format(new Date(time));
     }
 
     public static void main(String[] args) {
